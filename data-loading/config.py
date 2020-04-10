@@ -1,1 +1,0 @@
-api_key ="D70AXEY12ARMPWMN"
