@@ -1,0 +1,52 @@
+Symbol,Name,Sector
+AMZN,Amazon.com Inc.,Consumer Discretionary
+BBY,Best Buy Co. Inc.,Consumer Discretionary
+KMX,Carmax Inc,Consumer Discretionary
+DISCA,Discovery Inc. Class A,Consumer Discretionary
+EXPE,Expedia Inc.,Consumer Discretionary
+GRMN,Garmin Ltd.,Consumer Discretionary
+M,Macy's Inc.,Consumer Discretionary
+MAR,Marriott Int'l.,Consumer Discretionary
+MCD,McDonald's Corp.,Consumer Discretionary
+NKE,Nike,Consumer Discretionary
+SNA,Snap-On Inc.,Consumer Discretionary
+DIS,The Walt Disney Company,Consumer Discretionary
+TRIP,TripAdvisor,Consumer Discretionary
+WHR,Whirlpool Corp.,Consumer Discretionary
+KO,Coca-Cola Company (The),Consumer Staples
+GIS,General Mills,Consumer Staples
+KMB,Kimberly-Clark,Consumer Staples
+PEP,PepsiCo Inc.,Consumer Staples
+CLX,The Clorox Company,Consumer Staples
+TSN,Tyson Foods,Consumer Staples
+WMT,Wal-Mart Stores,Consumer Staples
+HAL,Halliburton Co.,Energy
+BAC,Bank of America Corp,Financials
+IVZ,Invesco Ltd.,Financials
+NDAQ,"Nasdaq, Inc.",Financials
+WFC,Wells Fargo,Financials
+ABT,Abbott Laboratories,Health Care
+AET,Aetna Inc,Health Care
+AGN,"Allergan, Plc",Health Care
+CI,CIGNA Corp.,Health Care
+HUM,Humana Inc.,Health Care
+JNJ,Johnson & Johnson,Health Care
+LLY,Lilly (Eli) & Co.,Health Care
+PFE,Pfizer Inc.,Health Care
+UNH,United Health Group Inc.,Health Care
+FDX,FedEx Corporation,Industrials
+GE,General Electric,Industrials
+LLL,L-3 Communications Holdings,Industrials
+LMT,Lockheed Martin Corp.,Industrials
+NLSN,Nielsen Holdings,Industrials
+NSC,Norfolk Southern Corp.,Industrials
+RTN,Raytheon Co.,Industrials
+LUV,Southwest Airlines,Industrials
+AAPL,Apple Inc.,Information Technology
+CTSH,Cognizant Technology Solutions,Information Technology
+IT,Gartner Inc,Information Technology
+LRCX,Lam Research,Information Technology
+MSFT,Microsoft Corp.,Information Technology
+NFLX,Netflix Inc.,Information Technology
+CRM,Salesforce.com,Information Technology
+,,

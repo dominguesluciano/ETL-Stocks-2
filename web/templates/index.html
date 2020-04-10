@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ETL 2</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/flatly/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <div class="container center">
+    <div class="jumbotron text-center">
+      <h1>ETL-2</h1>
+      <p>Information</p>
+    </div>
+    <div class="panel-body text-center">
+      <form class="col-md-12">
+        <div class="form-group ">
+          <ul class="list-inline" id="filters">
+            <li class="filter list-inline-item full-width">
+              <select id="selTicker" class="btn-primary">
+                <option value="AMZN">AMZN</option>
+                <option value="BBY">BBY</option>
+                <option value="KMX">KMX</option>
+                <option value="DISCA">DISCA</option>
+                <option value="EXPE">EXPE</option>
+                <option value="M">M</option>
+                <option value="MAR">MAR</option>
+                <option value="MCD">MCD</option>
+                <option value="NKE">NKE</option>
+              </select>
+            </li>
+            <!-- <li class="filter list-inline-item full-width">
+              <select id="selPrice" class="browser-default custom-select" onchange="optionChanged(this.value)"> 
+                <select id="selPrice" class="browser-default custom-select">
+                  <option value="eachOpenPrice">Open price</option>
+                <option value="eachClosePrice">Close price</option>
+              </select>
+            </li> -->
+          </ul>
+          <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+            <button id="filter-btn" type="button" class="btn-primary">Plot!</button><br><br>
+          </div>
+        </div>
+        </form>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="carousel" style="width: 100%;">
+          <div id="plot">
+
+          </div>
+          <div id="plot2">
+
+          </div>
+          <div id="plot3">
+
+          </div>
+        </div>
+    </div>
+    <!-- <ul>
+      {% for ticker in stock_test %}
+      <li>{{ ticker }}</li>
+      {% endfor %}
+  </ul>
+  <ul>
+    {% for open_price in open_test %}
+    <li>{{ open_price }}</li>
+    {% endfor %}
+</ul> -->
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <br>
+    <br>
+  <h6 >Mano & Luciano</h6>
+  </div>
+</div>
+  <table>
+    <thead>
+      <td></td>
+    </thead>
+  </table>
+  </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script type="text/javascript">
+        $(document).ready(function(){
+        $('.carousel').slick({
+        slidesToShow: 1,
+        dots:true,
+        centerMode: false,
+        adaptiveHeight: true,
+        arrows:true,
+      });
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/plot.js') }}"></script>
+</body>
+
+</html>
