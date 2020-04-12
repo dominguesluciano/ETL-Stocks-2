@@ -3,7 +3,7 @@ var apiData =  d3.json(url)
 
 let button = d3.select("#filter-btn");
 
-button.on("click", getData);
+button.on("click", optionChanged);
 
 function buildPlot(selectedTicker){
     apiData.then(function(data) {
@@ -204,15 +204,15 @@ function buildPlot(selectedTicker){
     yaxis: {
       title: "Opening price",
       autorange: true,
-      type: "linear"
+      type: "linear"  
     }
     
   };
+  var config = {responsive: true}
 
-
-      Plotly.newPlot("plot", data, layout);
-      Plotly.newPlot("plot2", data2, layout2);
-      Plotly.newPlot("plot3", data3, layout3);
+      Plotly.newPlot("plot", data, layout, config);
+      Plotly.newPlot("plot2", data2, layout2, config);
+      Plotly.newPlot("plot3", data3, layout3), config;
 
       // load page with first bar graph
 
@@ -231,13 +231,21 @@ buildPlot(initialTicker);
   //   buildPlot(selectedTicker);
   // }
 
-  function getData(){
-    let selectedTicker = d3.select("#selTicker").property("value");
-    console.log(selectedTicker) 
-    buildPlot(selectedTicker);
+  // function getData(){
+  //   let selectedTicker = d3.select("#selTicker").property("value");
+  //   console.log(selectedTicker) 
+  //   buildPlot(selectedTicker);
    
-    // var selectedPrice = d3.select("#selPrice").property("value");
+  //   // var selectedPrice = d3.select("#selPrice").property("value");
   
+  // }
+let selectedTicker = d3.select("#selTicker").select("a").text();
+
+  function optionChanged(selectedTicker){
+    console.log(selectedTicker);
+      
+      buildPlot(selectedTicker);
+
   }
 
   //

@@ -6,89 +6,286 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ETL 2</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/flatly/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <link href="{{ url_for('static', filename = 'vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="{{ url_for('static', filename = 'css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.min.js') }}"></script>
+
+  
 </head>
 <body>
-  <div class="container center">
-    <div class="jumbotron text-center">
-      <h1>ETL-2</h1>
-      <p>Information</p>
-    </div>
-    <div class="panel-body text-center">
-      <form class="col-md-12">
-        <div class="form-group ">
-          <ul class="list-inline" id="filters">
-            <li class="filter list-inline-item full-width">
-              <select id="selTicker" class="btn-primary">
-                <option value="AMZN">AMZN</option>
-                <option value="BBY">BBY</option>
-                <option value="KMX">KMX</option>
-                <option value="DISCA">DISCA</option>
-                <option value="EXPE">EXPE</option>
-                <option value="M">M</option>
-                <option value="MAR">MAR</option>
-                <option value="MCD">MCD</option>
-                <option value="NKE">NKE</option>
-              </select>
-            </li>
-            <!-- <li class="filter list-inline-item full-width">
-              <select id="selPrice" class="browser-default custom-select" onchange="optionChanged(this.value)"> 
-                <select id="selPrice" class="browser-default custom-select">
-                  <option value="eachOpenPrice">Open price</option>
-                <option value="eachClosePrice">Close price</option>
-              </select>
-            </li> -->
-          </ul>
-          <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-            <button id="filter-btn" type="button" class="btn-primary">Plot!</button><br><br>
+
+  <!-- dashboard -->
+  <body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+  
+      <!-- Sidebar -->
+     
+      <!-- End of Sidebar -->
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+  
+        <!-- Main Content -->
+        <div id="content">
+  
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  
+            <!-- Sidebar Toggle (Topbar) -->
+  
+            <!-- Topbar Search -->
+            <!-- Topbar Logo -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+              <div class="sidebar-brand-icon ">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="sidebar-brand-text mx-3">Stock Charts <sup>3</sup></div>
+            </a>
+  
+            <!-- Topbar Navbar -->
+  
+  
+          </nav>
+          <!-- End of Topbar -->
+  
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+  
+            <!-- Page Heading -->
+            <div class="row">
+              <div class="col-xl-0 col-lg-7">
+                  <h1 class="h3 mb-4 text-gray-800">ETL Project 2</h1>
+              </div>
+            </div>  
+            <!-- Charts area -->
+            <div class="row">
+              <!-- Donut Chart -->
+              <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Controls</h6>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <div class="panel-body text-center">
+                        <form class="col-md-12">
+                          <div class="form-group ">
+                            <div class="text-left">Select between 10 US companies with 10 years of historical data by different sectors</div>
+                            <br>
+                            <div class="text-left">Use the button below to select the disired company to plot the charts</div>
+
+                           <div class="card-body">
+                            <div class="dropdown no-arrow mb-4">
+                              <button class="btn btn-secondary dropdown-toggle" type="button2" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select a Company
+                              </button>
+                              <div id="#selTicker" class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                                <a class="dropdown-item" href="#" value="AMZN" type="button" onclick="optionChanged(this.text)">AMZN</a>
+                                <a class="dropdown-item" href="#" value="BBY" type="button" onclick="optionChanged(this.text)">BBY</a>
+                                <a class="dropdown-item" href="#" value="KMX" type="button" onclick="optionChanged(this.text)">KMX</a>
+                                <a class="dropdown-item" href="#" value="DISCA" type="button" onclick="optionChanged(this.text)">DISCA</a>
+                                <a class="dropdown-item" href="#" value="EXPE" type="button" onclick="optionChanged(this.text)">EXPE</a>
+                                <a class="dropdown-item" href="#" value="M" type="button" onclick="optionChanged(this.text)">M</a>
+                                <a class="dropdown-item" href="#" value="MAR" type="button" onclick="optionChanged(this.text)">MAR</a>
+                                <a class="dropdown-item" href="#" value="MCD" type="button" onclick="optionChanged(this.text)">MCD</a>
+                                <a class="dropdown-item" href="#" value="NKE" type="button" onclick="optionChanged(this.text)">NKE</a>
+                              </div>
+                              <hr>
+
+                            </div>
+                          </div>
+                          <div class="carousel col-xl-12 col-md-12 mb-4 ">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Amazon.com, Inc.</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">AMZN</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Best Buy Co Inc</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">BBY</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+          
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">CarMax, Inc</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">KMX</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">DISCOVERY COMMUNICATIONS INC.</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">DISCA</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Expedia Group Inc</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">EXPE</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Macy's Inc</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">M</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Marriott International Inc</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">MAR</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Mcdonald's Corp</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">MAR</div>
+                                  </div>
+                                  <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            
+                          </div>
+                          
+
+                          </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-8 col-lg-7">
+  
+                <!-- Area Chart -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Closing price - candlestick chart</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <div id="plot"></div>
+                      
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Bar Chart -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Opening price - Line chart</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <div id="plot3"></div>
+                    </div>
+               
+                  </div>
+                </div>
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Difference between Opening and Closing prices - Line chart</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <div id="plot2"></div>
+                    </div>
+                  </div>
+                </div>
+
+  
+              </div>
+  
+              
+            </div>
+  
           </div>
+          <!-- /.container-fluid -->
+  
         </div>
-        </form>
-    </div>
-    <div class="row">
-    </div>
-    <div class="row">
-        <div class="carousel" style="width: 100%;">
-          <div id="plot">
-
+        <!-- End of Main Content -->
+  
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Luciano & Mano 2020</span>
+            </div>
           </div>
-          <div id="plot2">
-
-          </div>
-          <div id="plot3">
-
-          </div>
-        </div>
-    </div>
-    <!-- <ul>
-      {% for ticker in stock_test %}
-      <li>{{ ticker }}</li>
-      {% endfor %}
-  </ul>
-  <ul>
-    {% for open_price in open_test %}
-    <li>{{ open_price }}</li>
-    {% endfor %}
-</ul> -->
-<div class="row">
-  <div class="col-lg-12 text-center">
-    <br>
-    <br>
-  <h6 >Mano & Luciano</h6>
-  </div>
-</div>
-  <table>
-    <thead>
-      <td></td>
-    </thead>
-  </table>
-  </div>
-  </div>
+        </footer>
+        <!-- End of Footer -->
+  
+      </div>
+      <!-- End of Content Wrapper -->
+  
+   
+  <!-- dashboard -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script type="text/javascript">
         $(document).ready(function(){
@@ -98,12 +295,19 @@
         centerMode: false,
         adaptiveHeight: true,
         arrows:true,
+        autoplay: true,
       });
     });
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script type="text/javascript" src="{{ url_for('static', filename = 'js/plot.js') }}"></script>
+
+
+  <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'js/sb-admin-2.min.js') }}"></script>
+
 </body>
 
 </html>
