@@ -1,23 +1,36 @@
-# Project-3 Title: Visualize Me - Stocks
-
-### Team members:
-
-* Luciano
-* Mano
-
-### Synopsis:
-
-Extracting the stock data of 50 US companies with 10 years of data by different sectors and store it in MongoDB. We are joining the data with the exchange rate to display the results in one another currency. We are using our previous project for the data portion but loading it in MongoDB.
-
-We are building a Dashboard that will have at least three visualizations to present the data sourcing from MongoDB:
-
-1. Candlestick chart: We are going to present the trend (Max and min price) of a particular ticker month by month
-2. Line chart: that shows the trend of the difference (Max and Min)
-3. Slick.js will be used to create a scrolling display effect to navigate through charts
+# Visualize Me - ETL pipeline
+## Stocks analysis through an interactive dashboard
 
 
-https://github.com/dominguesluciano/ETL-Stocks-2
+### Synopsis
 
-https://www.alphavantage.co/documentation/# (Stock data & Exchange rate)
+A web hosted interactive dashboard built upon ETL (extract transform and load). The workflow consists of:
 
-https://datahub.io/core/s-and-p-500-companies#resource-constituents (S&P data for Tickers)
+1) A Python application to pull stocks data from Alphavantage using their API 
+2) Wrangling the data with Panda to and storing it in a MongoDB (no relational database/NoSQL)
+3) A Flask App to serve the wrangled data through an API service (json)
+4) An interactive dashboard built with D3.js (to apply filters on the go), Plotly.js (to display the charts) and Bootstrap (look & feel + responsiveness of the web dashboard).
+
+The dashboard enable analysis of 10 S&P companies of their opening, closing and  variation between these two metrics throughtout the years.
+
+### Visualizations
+
+1. Candlestick
+2. Line chart
+3. Slick.js to display the companies within the dashboard
+
+### Deployment
+
+For deployment purposes there are two folders available:
+
+* run-local which contains all features described and unleashes the power of the pipeline (MongoDB installed locally required)
+* web which utilizes a static json file and bypass the Flask App API for deployment using GitHub pages
+
+The dashboard can be visualized in this github page: https://bit.ly/3dZOleC
+
+#### About the Data
+Stock data is originally pulled from Alphavantage (https://www.alphavantage.co/documentation/#)
+The S&P companies were chosen from https://datahub.io/core/s-and-p-500-companies#resource-constituents (S&P data for Tickers)
+
+#### Notes
+This project was part of UCF Data Analytics & Visualization boot camp program
