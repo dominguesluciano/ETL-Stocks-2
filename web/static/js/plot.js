@@ -1,4 +1,4 @@
-let url = `http://127.0.0.1:5000/apiv1`;
+let url = '../templates/apiv1/apiv1.json';
 var apiData =  d3.json(url)
 
 let button = d3.select("#filter-btn");
