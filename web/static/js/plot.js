@@ -1,4 +1,4 @@
-let url = '../../templates/apiv1/apiv1.json';
+let url = 'https://raw.githubusercontent.com/dominguesluciano/ETL-Stocks-2/master/web/templates/apiv1/apiv1.json';
 var apiData =  d3.json(url)
 
 let button = d3.select("#filter-btn");
