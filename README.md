@@ -6,8 +6,8 @@
 
 A web hosted interactive dashboard built upon ETL (extract transform and load). The workflow consists of:
 
-1) A Python application to pull stocks data from Alphavantage using their API 
-2) Wrangling the data with Panda to and storing it in a MongoDB (no relational database/NoSQL)
+1) A Python application to pull stocks data from Alphavantage stocks API 
+2) Wrangling the data with Panda and storing it in a MongoDB (no relational database/NoSQL)
 3) A Flask App to serve the wrangled data through an API service (json)
 4) An interactive dashboard built with D3.js (to apply filters on the go), Plotly.js (to display the charts) and Bootstrap (look & feel + responsiveness of the web dashboard).
 
@@ -17,7 +17,7 @@ The dashboard enable analysis of 10 S&P companies of their opening, closing and 
 
 1. Candlestick
 2. Line chart
-3. Slick.js to display the companies within the dashboard
+3. Slick.js to display the companies within the dashboard using a slider
 
 ### Deployment
 
